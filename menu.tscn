@@ -1,0 +1,121 @@
+[gd_scene load_steps=5 format=3 uid="uid://de3d4vfoab1p4"]
+
+[ext_resource type="Texture2D" uid="uid://d2na1ox7vdriq" path="res://sprites/Zimbo Neutral.png" id="1_4hy44"]
+[ext_resource type="Texture2D" uid="uid://dkqb043cmnkyl" path="res://sprites/Yuno.png" id="2_ytr4m"]
+[ext_resource type="Texture2D" uid="uid://datoo4b521y5c" path="res://sprites/Skibby_Neutral.PNG" id="3_l48gv"]
+[ext_resource type="Texture2D" uid="uid://yjlpwektgo3n" path="res://sprites/Dee.png" id="4_ecwwl"]
+
+[node name="Menu" type="Control"]
+custom_minimum_size = Vector2(400, 600)
+layout_mode = 3
+anchor_right = 0.31
+anchor_bottom = 0.653
+offset_right = -357.12
+offset_bottom = -423.144
+
+[node name="Container" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Container"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/MarginContainer"]
+layout_mode = 2
+
+[node name="Top" type="HBoxContainer" parent="Container/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="minimize" type="Button" parent="Container/MarginContainer/VBoxContainer/Top"]
+layout_mode = 2
+text = "_"
+
+[node name="X" type="Button" parent="Container/MarginContainer/VBoxContainer/Top"]
+layout_mode = 2
+text = "X"
+
+[node name="speed" type="Button" parent="Container/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Speed"
+
+[node name="accessories" type="HBoxContainer" parent="Container/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="acryLeft" type="Button" parent="Container/MarginContainer/VBoxContainer/accessories"]
+layout_mode = 2
+text = "<"
+
+[node name="acryRight" type="Button" parent="Container/MarginContainer/VBoxContainer/accessories"]
+layout_mode = 2
+text = ">"
+
+[node name="spriteSelect" type="HBoxContainer" parent="Container/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="spriteLeft" type="Button" parent="Container/MarginContainer/VBoxContainer/spriteSelect"]
+layout_mode = 2
+text = "<"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Container/MarginContainer/VBoxContainer/spriteSelect"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="sprites" type="HBoxContainer" parent="Container/MarginContainer/VBoxContainer/spriteSelect/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/separation = 20
+
+[node name="Zimbo" type="TextureRect" parent="Container/MarginContainer/VBoxContainer/spriteSelect/ScrollContainer/sprites"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_4hy44")
+expand_mode = 1
+
+[node name="Yuno" type="TextureRect" parent="Container/MarginContainer/VBoxContainer/spriteSelect/ScrollContainer/sprites"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_ytr4m")
+expand_mode = 1
+
+[node name="Skibby" type="TextureRect" parent="Container/MarginContainer/VBoxContainer/spriteSelect/ScrollContainer/sprites"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_l48gv")
+expand_mode = 1
+
+[node name="Dee" type="TextureRect" parent="Container/MarginContainer/VBoxContainer/spriteSelect/ScrollContainer/sprites"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_ecwwl")
+expand_mode = 1
+
+[node name="spriteRight" type="Button" parent="Container/MarginContainer/VBoxContainer/spriteSelect"]
+layout_mode = 2
+text = ">"
+
+[node name="Confirm" type="Button" parent="Container/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Confirm"
