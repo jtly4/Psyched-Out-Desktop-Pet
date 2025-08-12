@@ -1,22 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://8iqck8qd4sra"]
+[gd_scene load_steps=6 format=3 uid="uid://grqsmaftf06f"]
 
-[ext_resource type="Script" path="res://scripts/pet_window.gd" id="1_1vmm8"]
+[ext_resource type="Script" uid="uid://ja0p4a5rmpdy" path="res://scripts/pet_window.gd" id="1_1vmm8"]
 [ext_resource type="Texture2D" uid="uid://cno5haciloyd8" path="res://sprites/Zimbo Spritesheet.png" id="2_hwg2i"]
-
-[sub_resource type="Animation" id="Animation_0xm2m"]
-resource_name = "idle"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(-0.3, 0.133333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Vector2i(0, 5), Vector2i(1, 5)]
-}
 
 [sub_resource type="Animation" id="Animation_h2yge"]
 length = 0.001
@@ -33,18 +18,34 @@ tracks/0/keys = {
 "values": [Vector2i(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_0xm2m"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.3, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(0, 5), Vector2i(1, 5)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1bvp3"]
 _data = {
 &"RESET": SubResource("Animation_h2yge"),
 &"idle": SubResource("Animation_0xm2m")
 }
 
-[node name="PetWindow" type="Node2D"]
+[node name="PetWindow" type="Window"]
+position = Vector2i(0, 36)
 script = ExtResource("1_1vmm8")
 
 [node name="Pet" type="Sprite2D" parent="."]
 texture_filter = 3
-position = Vector2(156.5, 132.5)
+position = Vector2(100, 99)
 scale = Vector2(6.21875, 6.21875)
 texture = ExtResource("2_hwg2i")
 hframes = 6

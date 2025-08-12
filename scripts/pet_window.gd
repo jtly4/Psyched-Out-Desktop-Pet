@@ -1,4 +1,4 @@
-extends Node2D
+extends Window
 
 @export var maxX: int = 400
 @export var minX: int = -400
@@ -15,17 +15,25 @@ var cooldown: float = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_maxX = get_window().position.x + maxX
-	_minX = get_window().position.x + minX
-	get_window().transparent_bg = true
-	get_window().borderless = true
-	get_window().size = Vector2i(200, 200)
+	setup()
 	#get_tree().get_root().mouse_passthrough = true
 	#get_tree().get_root().mouse_passthrough_polygon = []
+
+func setup() -> void:
+	print("a")
+	_maxX = position.x + maxX
+	_minX = position.x + minX
+	print("max: %d, min: %d" % [_maxX, _minX])
+	transparent_bg = true
+	transparent = true
+	borderless = true
+	size = Vector2i(200, 200)
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	print(get_window().position.x)
 	if moving:
 		_move_towards_target(delta)
 	else:
