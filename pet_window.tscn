@@ -39,9 +39,9 @@ _data = {
 &"idle": SubResource("Animation_0xm2m")
 }
 
-[node name="PetWindow" type="Window"]
-position = Vector2i(0, 36)
+[node name="PetWindow" type="Node2D" node_paths=PackedStringArray("petAreaPolygons")]
 script = ExtResource("1_1vmm8")
+petAreaPolygons = [NodePath("Pet/Polygon2D")]
 
 [node name="Pet" type="Sprite2D" parent="."]
 texture_filter = 3
@@ -52,10 +52,16 @@ hframes = 6
 vframes = 12
 
 [node name="Polygon2D" type="Polygon2D" parent="Pet"]
+position = Vector2(-1.28643, 0.321608)
 color = Color(1, 1, 1, 0)
-polygon = PackedVector2Array(-10, -13, -13, -1, -10, 8, 0, 12, 11, 8, 13, -1, 11, -13, 0, -16)
+polygon = PackedVector2Array(-6.54489, -9.97597, -8.72015, -1.27491, -6.54489, 5.25088, 0.70599, 8.15123, 8.68196, 5.25088, 10.1321, -1.27491, 8.68196, -9.97597, 0.70599, -12.1512)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pet"]
 libraries = {
 &"": SubResource("AnimationLibrary_1bvp3")
 }
+
+[node name="debugdraw" type="Node" parent="."]
+
+[node name="Line2D" type="Line2D" parent="debugdraw"]
+default_color = Color(1, 0, 1, 1)
