@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="psychedOutDesktop"
-config/features=PackedStringArray("4.5", "Forward Plus")
+run/main_scene="uid://de3d4vfoab1p4"
+config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
