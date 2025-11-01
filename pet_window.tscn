@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://grqsmaftf06f"]
+[gd_scene load_steps=7 format=3 uid="uid://grqsmaftf06f"]
 
 [ext_resource type="Script" uid="uid://ja0p4a5rmpdy" path="res://scripts/pet_window.gd" id="1_1vmm8"]
 [ext_resource type="Texture2D" uid="uid://cno5haciloyd8" path="res://sprites/Zimbo Spritesheet.png" id="2_hwg2i"]
+[ext_resource type="Script" uid="uid://cyovokiqvv50l" path="res://pet.gd" id="3_xrev3"]
 
 [sub_resource type="Animation" id="Animation_h2yge"]
 length = 0.001
@@ -50,6 +51,7 @@ scale = Vector2(6.21875, 6.21875)
 texture = ExtResource("2_hwg2i")
 hframes = 6
 vframes = 12
+script = ExtResource("3_xrev3")
 
 [node name="Polygon2D" type="Polygon2D" parent="Pet"]
 position = Vector2(-1.28643, 0.321608)

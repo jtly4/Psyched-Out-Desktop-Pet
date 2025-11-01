@@ -35,9 +35,6 @@ func setup() -> void:
 	get_window().always_on_top = true
 	get_viewport().transparent_bg = true
 	
-	_maxX = _screenCenter.x + maxX
-	_minX = _screenCenter.x + minX
-	print("max: %d, min: %d" % [_maxX, _minX])
 	get_window().transparent_bg = true
 	get_window().transparent = true
 	get_window().borderless = true
