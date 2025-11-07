@@ -1,13 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://de3d4vfoab1p4"]
+[gd_scene load_steps=13 format=3 uid="uid://de3d4vfoab1p4"]
 
 [ext_resource type="Texture2D" uid="uid://d2na1ox7vdriq" path="res://sprites/Zimbo Neutral.png" id="1_4hy44"]
 [ext_resource type="Script" uid="uid://cn08jx6hsc3wh" path="res://menu.gd" id="1_ecwwl"]
-[ext_resource type="Script" path="res://spritesSelection.gd" id="2_kk3ma"]
+[ext_resource type="Texture2D" uid="uid://cqf7uob281kr7" path="res://textures/window_texture.png" id="2_h1wq0"]
+[ext_resource type="Script" uid="uid://r1nsthvbovk2" path="res://spritesSelection.gd" id="2_kk3ma"]
 [ext_resource type="Script" uid="uid://c4puco5acff35" path="res://option_button.gd" id="2_nrnbx"]
 [ext_resource type="Texture2D" uid="uid://dkqb043cmnkyl" path="res://sprites/Yuno.png" id="2_ytr4m"]
+[ext_resource type="LabelSettings" uid="uid://boaj2f8scogko" path="res://textures/LabelSettingsStyle.tres" id="3_dwrpx"]
 [ext_resource type="Texture2D" uid="uid://datoo4b521y5c" path="res://sprites/Skibby_Neutral.PNG" id="3_l48gv"]
+[ext_resource type="Script" path="res://speed_control.gd" id="3_nrnbx"]
 [ext_resource type="Texture2D" uid="uid://yjlpwektgo3n" path="res://sprites/Dee.png" id="4_ecwwl"]
-[ext_resource type="Script" path="res://selectedSprite.gd" id="4_nrnbx"]
+[ext_resource type="Script" uid="uid://qnhrx1yp8okf" path="res://selectedSprite.gd" id="4_nrnbx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g7jxm"]
+texture = ExtResource("2_h1wq0")
 
 [node name="Menu" type="Control"]
 custom_minimum_size = Vector2(400, 600)
@@ -25,6 +31,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Container"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_g7jxm")
 
 [node name="MarginContainer" type="MarginContainer" parent="Container"]
 layout_mode = 2
@@ -48,11 +58,6 @@ text = "_"
 layout_mode = 2
 text = "X"
 
-[node name="speed" type="Button" parent="Container/MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-text = "Speed"
-
 [node name="VBoxContainer" type="VBoxContainer" parent="Container/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
@@ -68,6 +73,7 @@ size_flags_stretch_ratio = 0.0
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 text = "Character"
+label_settings = ExtResource("3_dwrpx")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -97,24 +103,31 @@ layout_mode = 2
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Speed"
+label_settings = ExtResource("3_dwrpx")
 horizontal_alignment = 1
 
-[node name="Left" type="Button" parent="Container/MarginContainer/VBoxContainer/VBoxContainer/Speed"]
-layout_mode = 2
-size_flags_vertical = 4
-text = "<"
-
-[node name="SpeedOption" type="Label" parent="Container/MarginContainer/VBoxContainer/VBoxContainer/Speed"]
+[node name="DropDown2" type="OptionButton" parent="Container/MarginContainer/VBoxContainer/VBoxContainer/Speed"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-size_flags_horizontal = 4
-text = "SpeedNumber"
-horizontal_alignment = 1
-
-[node name="Right" type="Button" parent="Container/MarginContainer/VBoxContainer/VBoxContainer/Speed"]
-layout_mode = 2
 size_flags_vertical = 4
-text = ">"
+theme_override_constants/arrow_margin = 10
+allow_reselect = true
+item_count = 7
+popup/item_0/text = ".5x"
+popup/item_0/id = 0
+popup/item_1/text = ".75x"
+popup/item_1/id = 1
+popup/item_2/text = "1x"
+popup/item_2/id = 2
+popup/item_3/text = "1.25x"
+popup/item_3/id = 3
+popup/item_4/text = "1.5x"
+popup/item_4/id = 4
+popup/item_5/text = "1.75x"
+popup/item_5/id = 5
+popup/item_6/text = "2x"
+popup/item_6/id = 6
+script = ExtResource("3_nrnbx")
 
 [node name="Size" type="HBoxContainer" parent="Container/MarginContainer/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 75)
@@ -124,23 +137,21 @@ layout_mode = 2
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Size"
+label_settings = ExtResource("3_dwrpx")
 horizontal_alignment = 1
 
-[node name="Left" type="Button" parent="Container/MarginContainer/VBoxContainer/VBoxContainer/Size"]
-layout_mode = 2
-size_flags_vertical = 4
-text = "<"
-
-[node name="SizeOption" type="Label" parent="Container/MarginContainer/VBoxContainer/VBoxContainer/Size"]
+[node name="SizeDropDown" type="OptionButton" parent="Container/MarginContainer/VBoxContainer/VBoxContainer/Size"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-text = "SizeOption"
-horizontal_alignment = 1
-
-[node name="Right" type="Button" parent="Container/MarginContainer/VBoxContainer/VBoxContainer/Size"]
-layout_mode = 2
 size_flags_vertical = 4
-text = ">"
+allow_reselect = true
+item_count = 3
+popup/item_0/text = "Small"
+popup/item_0/id = 0
+popup/item_1/text = "Medium"
+popup/item_1/id = 1
+popup/item_2/text = "Large"
+popup/item_2/id = 2
 
 [node name="accessories" type="HBoxContainer" parent="Container/MarginContainer/VBoxContainer"]
 visible = false
@@ -217,4 +228,6 @@ text = ">"
 layout_mode = 2
 text = "Confirm"
 
-[connection signal="item_selected" from="Container/MarginContainer/VBoxContainer/VBoxContainer/CharacterSelect/DropDown" to="Container/MarginContainer/VBoxContainer/VBoxContainer/CharacterSelect/DropDown" method="_on_item_selected"]
+[connection signal="item_selected" from="Container/MarginContainer/VBoxContainer/VBoxContainer/CharacterSelect/DropDown" to="." method="_on_drop_down_item_selected"]
+[connection signal="item_selected" from="Container/MarginContainer/VBoxContainer/VBoxContainer/Speed/DropDown2" to="." method="_on_drop_down_2_item_selected"]
+[connection signal="item_selected" from="Container/MarginContainer/VBoxContainer/VBoxContainer/Size/SizeDropDown" to="." method="_on_size_drop_down_item_selected"]
