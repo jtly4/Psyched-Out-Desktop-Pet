@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://de3d4vfoab1p4"]
+[gd_scene load_steps=9 format=3 uid="uid://de3d4vfoab1p4"]
 
 [ext_resource type="Texture2D" uid="uid://d2na1ox7vdriq" path="res://sprites/Zimbo Neutral.png" id="1_4hy44"]
+[ext_resource type="Script" uid="uid://cn08jx6hsc3wh" path="res://menu.gd" id="1_ecwwl"]
+[ext_resource type="Script" path="res://spritesSelection.gd" id="2_kk3ma"]
+[ext_resource type="Script" uid="uid://c4puco5acff35" path="res://option_button.gd" id="2_nrnbx"]
 [ext_resource type="Texture2D" uid="uid://dkqb043cmnkyl" path="res://sprites/Yuno.png" id="2_ytr4m"]
 [ext_resource type="Texture2D" uid="uid://datoo4b521y5c" path="res://sprites/Skibby_Neutral.PNG" id="3_l48gv"]
 [ext_resource type="Texture2D" uid="uid://yjlpwektgo3n" path="res://sprites/Dee.png" id="4_ecwwl"]
+[ext_resource type="Script" path="res://selectedSprite.gd" id="4_nrnbx"]
 
 [node name="Menu" type="Control"]
 custom_minimum_size = Vector2(400, 600)
@@ -12,6 +16,7 @@ anchor_right = 0.31
 anchor_bottom = 0.653
 offset_right = -357.12
 offset_bottom = -423.144
+script = ExtResource("1_ecwwl")
 
 [node name="Container" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -48,6 +53,95 @@ visible = false
 layout_mode = 2
 text = "Speed"
 
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="CharacterSelect" type="HBoxContainer" parent="Container/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+
+[node name="CharacterTxt" type="Label" parent="Container/MarginContainer/VBoxContainer/VBoxContainer/CharacterSelect"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Character"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DropDown" type="OptionButton" parent="Container/MarginContainer/VBoxContainer/VBoxContainer/CharacterSelect"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/arrow_margin = 10
+item_count = 5
+popup/item_0/text = "Zimbo"
+popup/item_0/id = 0
+popup/item_1/text = "Yuno"
+popup/item_1/id = 1
+popup/item_2/text = "Skibby"
+popup/item_2/id = 2
+popup/item_3/text = "Dee"
+popup/item_3/id = 3
+popup/item_4/text = "no one"
+popup/item_4/id = 4
+script = ExtResource("2_nrnbx")
+
+[node name="Speed" type="HBoxContainer" parent="Container/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+
+[node name="SpeedTxt" type="Label" parent="Container/MarginContainer/VBoxContainer/VBoxContainer/Speed"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Speed"
+horizontal_alignment = 1
+
+[node name="Left" type="Button" parent="Container/MarginContainer/VBoxContainer/VBoxContainer/Speed"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "<"
+
+[node name="SpeedOption" type="Label" parent="Container/MarginContainer/VBoxContainer/VBoxContainer/Speed"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "SpeedNumber"
+horizontal_alignment = 1
+
+[node name="Right" type="Button" parent="Container/MarginContainer/VBoxContainer/VBoxContainer/Speed"]
+layout_mode = 2
+size_flags_vertical = 4
+text = ">"
+
+[node name="Size" type="HBoxContainer" parent="Container/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+
+[node name="SizeTxt" type="Label" parent="Container/MarginContainer/VBoxContainer/VBoxContainer/Size"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Size"
+horizontal_alignment = 1
+
+[node name="Left" type="Button" parent="Container/MarginContainer/VBoxContainer/VBoxContainer/Size"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "<"
+
+[node name="SizeOption" type="Label" parent="Container/MarginContainer/VBoxContainer/VBoxContainer/Size"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "SizeOption"
+horizontal_alignment = 1
+
+[node name="Right" type="Button" parent="Container/MarginContainer/VBoxContainer/VBoxContainer/Size"]
+layout_mode = 2
+size_flags_vertical = 4
+text = ">"
+
 [node name="accessories" type="HBoxContainer" parent="Container/MarginContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
@@ -61,6 +155,7 @@ layout_mode = 2
 text = ">"
 
 [node name="spriteSelect" type="HBoxContainer" parent="Container/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -79,6 +174,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_constants/separation = 20
+script = ExtResource("2_kk3ma")
 
 [node name="Zimbo" type="TextureRect" parent="Container/MarginContainer/VBoxContainer/spriteSelect/ScrollContainer/sprites"]
 custom_minimum_size = Vector2(100, 100)
@@ -87,6 +183,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("1_4hy44")
 expand_mode = 1
+script = ExtResource("4_nrnbx")
 
 [node name="Yuno" type="TextureRect" parent="Container/MarginContainer/VBoxContainer/spriteSelect/ScrollContainer/sprites"]
 custom_minimum_size = Vector2(100, 100)
@@ -119,3 +216,5 @@ text = ">"
 [node name="Confirm" type="Button" parent="Container/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Confirm"
+
+[connection signal="item_selected" from="Container/MarginContainer/VBoxContainer/VBoxContainer/CharacterSelect/DropDown" to="Container/MarginContainer/VBoxContainer/VBoxContainer/CharacterSelect/DropDown" method="_on_item_selected"]
