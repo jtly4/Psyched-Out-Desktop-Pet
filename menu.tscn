@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://de3d4vfoab1p4"]
+[gd_scene load_steps=14 format=3 uid="uid://de3d4vfoab1p4"]
 
 [ext_resource type="Texture2D" uid="uid://d2na1ox7vdriq" path="res://sprites/Zimbo Neutral.png" id="1_4hy44"]
 [ext_resource type="Script" uid="uid://cn08jx6hsc3wh" path="res://menu.gd" id="1_ecwwl"]
@@ -7,9 +7,10 @@
 [ext_resource type="Script" uid="uid://c4puco5acff35" path="res://option_button.gd" id="2_nrnbx"]
 [ext_resource type="Texture2D" uid="uid://dkqb043cmnkyl" path="res://sprites/Yuno.png" id="2_ytr4m"]
 [ext_resource type="LabelSettings" uid="uid://boaj2f8scogko" path="res://textures/LabelSettingsStyle.tres" id="3_dwrpx"]
+[ext_resource type="Texture2D" uid="uid://bqb6xw2rn7jxb" path="res://textures/_ BUTTON.png" id="3_g7jxm"]
 [ext_resource type="Texture2D" uid="uid://datoo4b521y5c" path="res://sprites/Skibby_Neutral.PNG" id="3_l48gv"]
-[ext_resource type="Script" path="res://speed_control.gd" id="3_nrnbx"]
 [ext_resource type="Texture2D" uid="uid://yjlpwektgo3n" path="res://sprites/Dee.png" id="4_ecwwl"]
+[ext_resource type="Texture2D" uid="uid://7ia61bfmkcyk" path="res://textures/x BUTTON.png" id="4_jspdm"]
 [ext_resource type="Script" uid="uid://qnhrx1yp8okf" path="res://selectedSprite.gd" id="4_nrnbx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g7jxm"]
@@ -50,13 +51,18 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="minimize" type="Button" parent="Container/MarginContainer/VBoxContainer/Top"]
+[node name="minimize" type="TextureButton" parent="Container/MarginContainer/VBoxContainer/Top"]
+custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
-text = "_"
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 7.39
+texture_normal = ExtResource("3_g7jxm")
 
-[node name="X" type="Button" parent="Container/MarginContainer/VBoxContainer/Top"]
+[node name="X" type="TextureButton" parent="Container/MarginContainer/VBoxContainer/Top"]
+custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
-text = "X"
+size_flags_horizontal = 3
+texture_normal = ExtResource("4_jspdm")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Container/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 200)
@@ -127,7 +133,6 @@ popup/item_5/text = "1.75x"
 popup/item_5/id = 5
 popup/item_6/text = "2x"
 popup/item_6/id = 6
-script = ExtResource("3_nrnbx")
 
 [node name="Size" type="HBoxContainer" parent="Container/MarginContainer/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 75)
